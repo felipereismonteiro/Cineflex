@@ -6,7 +6,7 @@ import FilmeDescricao from "./filmeDescricao"
 export default function Footer() {
     return(
         <>
-        <FooterDiv></FooterDiv>
+        <FooterDiv></FooterDiv>    
             <FooterImg>
                 <Card/>
                 <FilmeDescricao />

@@ -37,7 +37,7 @@ const CaixaHora = styled.button`
     margin-right: 10px;
     border-radius: 3px;
     border: none;
-    cursor: pointer;
+    margin-bottom: 10px;
     &&:active {
         transform: translateY(2px);
     }

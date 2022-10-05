@@ -1,14 +1,14 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Header({screen}) {
+export default function Header() {
     return (
         <>
             <Topo>
-                <h1>CINEFLIX</h1>
+                <Link style={{textDecoration: 'none'}} to="/">
+                    <h1>CINEFLIX</h1>
+                </Link>
             </Topo>
-            <SelecioneHorario>
-                <h1>Selecione o {screen}</h1>
-            </SelecioneHorario>
         </>
     )
 }
@@ -24,19 +24,9 @@ const Topo = styled.header`
     justify-content: center;
     position: fixed;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
     && h1{
         color: #E8833A;
         font-size: 34px;
-    }
-`
-
-const SelecioneHorario = styled.div`
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    && h1 {
-        font-weight: 100;
     }
 `
