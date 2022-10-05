@@ -5,16 +5,16 @@ import Acentos from "./acentos"
 export default function TelaSelecionarAcento() {
     return(
         <>
-            <SelecioneHorario>
+            <SelecioneAcento>
                 <h1>Selecione o(s) assento(s)</h1>
-            </SelecioneHorario>
+            </SelecioneAcento>
             <Acentos/>
             <Footer />
         </>
     )
 }
 
-const SelecioneHorario = styled.div`
+const SelecioneAcento = styled.div`
     width: 100%;
     margin-top: 80px;
     margin-bottom: -20px;
@@ -25,3 +25,4 @@ const SelecioneHorario = styled.div`
         font-weight: 100;
     }
 `
+

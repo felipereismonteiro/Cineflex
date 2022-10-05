@@ -8,7 +8,9 @@ export default function TelaSelecionarHorario() {
             <SelecioneHorario>
                 <h1>Selecione o horário</h1>
             </SelecioneHorario>
+
             <Horarios />
+
             <Footer />
         </>
     )

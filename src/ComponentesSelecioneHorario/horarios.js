@@ -3,17 +3,17 @@ import styled from "styled-components"
 export default function Horarios() {
 
     return (
-            <Horario>
-                <p>Quinta-feira - 24/06/2021</p>
-                <Hora>
-                    <CaixaHora>
-                        <p>15:00</p>
-                    </CaixaHora>
-                    <CaixaHora>
-                        <p>19:00</p>
-                    </CaixaHora>
-                </Hora>
-            </Horario>
+        <Horario>
+            <p>Quinta-feira - 24/06/2021</p>
+            <Hora>
+                <CaixaHora>
+                    <p>15:00</p>
+                </CaixaHora>
+                <CaixaHora>
+                    <p>19:00</p>
+                </CaixaHora>
+            </Hora>
+        </Horario>
     )
 }
 

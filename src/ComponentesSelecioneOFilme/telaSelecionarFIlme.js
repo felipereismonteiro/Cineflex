@@ -4,16 +4,16 @@ import Filmes from "./filmes"
 export default function TelaSelecionarFilme() {
     return(
         <>
-            <SelecioneHorario>
+            <SelecioneFilme>
                 <h1>Selecione o filme</h1>
-            </SelecioneHorario>
+            </SelecioneFilme>
             
             <Filmes />
         </>
     )
 }
 
-const SelecioneHorario = styled.div`
+const SelecioneFilme = styled.div`
     width: 100%;
     margin-top: 80px;
     display: flex;

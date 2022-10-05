@@ -91,7 +91,7 @@ const BolinhasAcentos = styled.div`
 const Container = styled.div`
     width: 95%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around   ;
     flex-wrap: wrap;
 `
 const BolinhaAcento = styled.button`
@@ -166,7 +166,7 @@ const Input = styled.button`
     align-items: center;
     justify-content: center;
 
-    margin: 40px auto 30px auto;
+    margin: 40px auto 25px auto;
     && p{
 
         font-family: 'Roboto';
