@@ -6,7 +6,7 @@ export default function TelaSelecionarHorario() {
     return (
         <>
             <SelecioneHorario>
-                <h1>Selecione o Horario</h1>
+                <h1>Selecione o horário</h1>
             </SelecioneHorario>
             <Horarios />
             <Footer />

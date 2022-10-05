@@ -1,14 +1,15 @@
 import styled from "styled-components"
-import Filmes from "./filmes"
+import Footer from "../ComponenteSelecioneAcento/footerAcento"
+import Acentos from "./acentos"
 
-export default function TelaSelecionarFilme() {
+export default function TelaSelecionarAcento() {
     return(
         <>
             <SelecioneHorario>
-                <h1>Selecione o filme</h1>
+                <h1>Selecione o(s) assento(s)</h1>
             </SelecioneHorario>
-            
-            <Filmes />
+            <Acentos/>
+            <Footer />
         </>
     )
 }
@@ -16,6 +17,7 @@ export default function TelaSelecionarFilme() {
 const SelecioneHorario = styled.div`
     width: 100%;
     margin-top: 80px;
+    margin-bottom: -20px;
     display: flex;
     justify-content: center;
     align-items: center;
