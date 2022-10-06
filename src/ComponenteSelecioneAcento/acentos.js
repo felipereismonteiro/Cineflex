@@ -1,12 +1,13 @@
 import axios from "axios"
 import { useState } from "react"
-import { Link, redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Acentos({ acentos, setAcentoSelecionado, setDados, filmeSelecionado, horarioSelecionado, acentoSelecionado, dados }) {
     const [selecionados, setSelecionados] = useState([]) 
     const [Nome, setNome] = useState()
     const [CPF, setCPF] = useState()
+    const navigate = useNavigate()
     
     setAcentoSelecionado(selecionados)
     
@@ -51,10 +52,10 @@ export default function Acentos({ acentos, setAcentoSelecionado, setDados, filme
             }
         
 
-        axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", postForm).then(() => {
-            console.log("sucesso")
+        axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", postForm).then((res) => {
+            navigate("../sucesso")
         }).catch((err) => {
-            alert(err.response.data)
+            alert(err.response)
         })
     }
 
