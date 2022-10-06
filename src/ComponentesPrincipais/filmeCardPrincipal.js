@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Card({id ,title, poster}) {
+export default function Card({filme, id ,title, poster, setFilmeSelecionado}) {
 
     return (
         <CardFilme>
-            <Link to={`/sessoes/${id}`}>
+            <Link to={`/sessoes/${id}`} onClick={() => setFilmeSelecionado(title)}>
                 <img src={poster} alt={title} />
             </Link>
         </CardFilme>

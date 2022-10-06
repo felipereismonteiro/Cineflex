@@ -1,11 +1,11 @@
 import Horarios from "./horarios"
-import Footer from "./footerImg"
+import Footer from "../ComponentesPrincipais/footer"
 import styled from "styled-components"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-export default function TelaSelecionarHorario() {
+export default function TelaSelecionarHorario({ setHorarioSelecionado }) {
     const [filme, setFilme] = useState()
     const { idFilme } = useParams()
 
@@ -15,7 +15,7 @@ export default function TelaSelecionarHorario() {
         }).catch((err) => {
             console.log(err.response.data)
         })
-    }, [])
+    }, [idFilme])
 
     if(filme === undefined) {
         return(
@@ -31,7 +31,7 @@ export default function TelaSelecionarHorario() {
                 <h1>Selecione o horário</h1>
             </SelecioneHorario>
 
-            {filme.days.map((f) => <Horarios key={f.id} days={f}/>)}
+            {filme.days.map((f) => <Horarios key={f.id} days={f} setHorarioSelecionado={setHorarioSelecionado}/>)}
 
             <Footer filme={filme} />
         </>

@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 
 
-export default function TelaSucesso() {
+export default function TelaSucesso({filmeSelecionado, horarioSelecionado, acentoSelecionado, dados}) {
     return(
         <>
             <Sucesso>
@@ -12,20 +12,19 @@ export default function TelaSucesso() {
 
             <Container>
                 <h2>Filme e sessão</h2>
-                <p>Coringa</p>
-                <p>24/06/2021 15:00</p>
+                <p>{filmeSelecionado}</p>
+                <p>{horarioSelecionado !== undefined && horarioSelecionado[0]} {horarioSelecionado !== undefined && horarioSelecionado[1]}</p>
             </Container>
 
             <Container>
                 <h2>Ingressos</h2>
-                <p>Assento 17</p>
-                <p>Assento 18</p>
+                {acentoSelecionado !== undefined && acentoSelecionado.map((h, index) => <p key={index}>Assento {h}</p>)}
             </Container>
 
             <Container>
                 <h2>Comprador</h2>
-                <p>Nome: Felipe dos Reis Monteiro</p>
-                <p>CPF: 113.029.818.38</p>
+                <p>Nome: {dados !== undefined && dados[0]}</p>
+                <p>CPF: {dados !== undefined && dados[1]}</p>
             </Container>
 
             <Link to="/" style={{textDecoration: "none"}}>

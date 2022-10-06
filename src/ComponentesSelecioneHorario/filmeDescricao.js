@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export default function FilmeDescricao({filmeTitulo, filmeHorario}) {
-    console.log(filmeHorario)
     return (
         <Descricao>
             <p>{filmeTitulo}</p>

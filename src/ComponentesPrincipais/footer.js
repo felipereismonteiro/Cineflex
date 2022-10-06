@@ -1,10 +1,9 @@
 import styled from "styled-components"
-import Card from "../ComponentesPrincipais/filmeCard"
-import FilmeDescricao from "./filmeDescricao"
+import Card from "./filmeCard"
+import FilmeDescricao from "../ComponentesSelecioneHorario/filmeDescricao"
 
 
 export default function Footer({filme}) {
-
     return(
         <>
         <FooterDiv></FooterDiv>    

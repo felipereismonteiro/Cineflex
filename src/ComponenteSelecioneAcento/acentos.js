@@ -1,60 +1,89 @@
+import axios from "axios"
+import { useState } from "react"
+import { Link, redirect } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Acentos() {
+export default function Acentos({ acentos, setAcentoSelecionado, setDados, filmeSelecionado, horarioSelecionado, acentoSelecionado, dados }) {
+    const [selecionados, setSelecionados] = useState([]) 
+    const [Nome, setNome] = useState()
+    const [CPF, setCPF] = useState()
+    
+    setAcentoSelecionado(selecionados)
+    
+    function acento(a) {
+
+        if(selecionados.includes(a.name) && a.isAvailable ) {
+            return  <BolinhaAcento onClick={() => clicado(a.name)}key={a.id} color={"#0E7D71"}>
+                        <p>{a.name}</p>
+                    </BolinhaAcento>
+        } 
+        
+        else if(a.isAvailable === true) {
+            return  <BolinhaAcento onClick={() => setSelecionados([...selecionados, a.name])} key={a.id} color={"#7B8B99"}>
+                        <p>{a.name}</p>
+                    </BolinhaAcento>
+        } else if(a.isAvailable === false) {
+            return  <BolinhaAcento key={a.id} color={"#F7C52B"}>
+                        <p>{a.name}</p>
+                    </BolinhaAcento>
+        }
+    }
+
+    function clicado(i) {
+        const acentosFiltrados = selecionados.filter((item) => item !== i)
+        setSelecionados(acentosFiltrados)
+    }
+
+    function inputName(e) {
+        setNome(e.target.value)
+    }
+
+    function inputCPF(e) {
+        setCPF(e.target.value)
+    }
+
+    function reservandoSessao() {
+        const postForm = 
+            {
+                ids: acentoSelecionado,
+                name: Nome,
+                cpf: CPF
+            }
+        
+
+        axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", postForm).then(() => {
+            console.log("sucesso")
+        }).catch((err) => {
+            alert(err.response.data)
+        })
+    }
+
+    function enviarSucesso() {
+        if(acentoSelecionado.length !== 0 && (Nome !== undefined && Nome !== "") && (CPF !== undefined && CPF !== "")){
+            return(
+                <Input color={"#E8833A"} type="submit" onClick={() => {
+                    setDados([Nome, CPF])
+                    reservandoSessao()
+                    }}>
+                    <p>Reservar assento(s)</p>
+                </Input>
+                
+            )
+        } else {
+            return(
+                    <Input color={"gray"} type="submit">
+                        <p>Reservar assento(s)</p>
+                    </Input>
+            )
+        }
+        
+    }
+
     return(
         <>
             <BolinhasAcentos>
                 <Container>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
-                    <BolinhaAcento color={"#7B8B99"}/>
+                    {acentos !== undefined && acentos.map((a) => acento(a))}
                 </Container>
             </BolinhasAcentos>
 
@@ -71,14 +100,13 @@ export default function Acentos() {
 
             <Inputs>
                 <h3>Nome do comprador:</h3>
-                <input type="text" placeholder="Digite seu nome..."/>
+                <input onChange={(e) => inputName(e)} type="text" placeholder="Digite seu nome..."/>
                 <h3>CPF do comprador:</h3>
-                <input type="text" placeholder="Digite seu CPF..."/>
+                <input onChange={(e) => inputCPF(e)} type="text" placeholder="Digite seu CPF..."/>
             </Inputs>
 
-            <Input type="submit">
-            <p>Reservar assento(s)</p>
-            </Input>
+            {enviarSucesso()}
+            
         </>
     )
 
@@ -101,6 +129,13 @@ const BolinhaAcento = styled.button`
     background-color:  ${(props) => props.color};
     border: 1px solid #7B8B99;
     margin: 20px 4px 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &&:active {
+        transform: translateY(2px);
+    }
+    
 `
 
 const Descricao = styled.div`
@@ -159,7 +194,7 @@ const Input = styled.button`
     left: 72px;
     top: 688px;
 
-    background: #E8833A;
+    background: ${(props) => props.color};
     border-radius: 3px;
     border: none;
     display: flex;

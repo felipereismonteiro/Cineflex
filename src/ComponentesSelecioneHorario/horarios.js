@@ -1,16 +1,23 @@
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components"
 
-export default function Horarios({ days }) {
+export default function Horarios({ days, setHorarioSelecionado}) {
+    const {idFilme} = useParams()
+
     return (
         <Horario>
             <p>{days.weekday} {days.date}</p>
             <Hora>
                 {days.showtimes.map((t) => 
-                <CaixaHora key={t.id}>
-                    <p>{t.name}</p>
-                </CaixaHora>)}
+                <Link key={t.id} style={{textDecoration: "none"}} to={`/assentos/${idFilme}`} onClick={() => setHorarioSelecionado([ days.weekday, days.date, t.name ])}>
+                    <CaixaHora>
+                        <p>{t.name}</p>
+                    </CaixaHora>
+                </Link> 
+                )}
             </Hora>
         </Horario>
+        
     )
 }
 
