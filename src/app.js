@@ -14,7 +14,7 @@ export default function App() {
             <Header/>
             <Routes>
                 <Route path="/" element={<TelaSelecionarFilme />} />
-                <Route path="/horarios" element={<TelaSelecionarHorario />} />
+                <Route path="/sessoes/:idFilme" element={<TelaSelecionarHorario />} />
                 <Route path="/acentos" element={<TelaSelecionarAcento />}/>
                 <Route path="/sucesso" element={<TelaSucesso />}/>
             </Routes>

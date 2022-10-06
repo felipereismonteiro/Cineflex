@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Card() {
+export default function Card({id ,title, poster}) {
+
     return (
         <CardFilme>
-            <img src="https://1.bp.blogspot.com/-tt2O7kP0WS0/Xh562IVHanI/AAAAAAAAPCg/OGWXeeSarSQCb6WsdSqJa4KRI412qXyPQCLcBGAsYHQ/s1600/aaa2.jpg" alt="CORINGAO" />
+            <Link to={`/sessoes/${id}`}>
+                <img src={poster} alt={title} />
+            </Link>
         </CardFilme>
     )
 }

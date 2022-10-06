@@ -3,13 +3,14 @@ import Card from "../ComponentesPrincipais/filmeCard"
 import FilmeDescricao from "./filmeDescricao"
 
 
-export default function Footer() {
+export default function Footer({filme}) {
+
     return(
         <>
         <FooterDiv></FooterDiv>    
             <FooterImg>
-                <Card/>
-                <FilmeDescricao />
+                <Card filmeTitulo={filme.title} filmePoster={filme.posterURL}/>
+                <FilmeDescricao  filmeTitulo={filme.title}/>
             </FooterImg>
         </>
     )

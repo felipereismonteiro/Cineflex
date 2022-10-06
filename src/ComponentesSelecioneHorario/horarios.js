@@ -1,17 +1,14 @@
 import styled from "styled-components"
 
-export default function Horarios() {
-
+export default function Horarios({ days }) {
     return (
         <Horario>
-            <p>Quinta-feira - 24/06/2021</p>
+            <p>{days.weekday} {days.date}</p>
             <Hora>
-                <CaixaHora>
-                    <p>15:00</p>
-                </CaixaHora>
-                <CaixaHora>
-                    <p>19:00</p>
-                </CaixaHora>
+                {days.showtimes.map((t) => 
+                <CaixaHora key={t.id}>
+                    <p>{t.name}</p>
+                </CaixaHora>)}
             </Hora>
         </Horario>
     )
