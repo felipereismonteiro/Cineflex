@@ -98,13 +98,13 @@ export default function Acentos({ acentos, setAcentoSelecionado, setDados, filme
                 <p>Disponível</p>
                 <p>Indisponível</p>
             </Descricao>
-
-            <Inputs>
-                <h3>Nome do comprador:</h3>
-                <input onChange={(e) => inputName(e)} type="text" placeholder="Digite seu nome..."/>
-                <h3>CPF do comprador:</h3>
-                <input onChange={(e) => inputCPF(e)} type="text" placeholder="Digite seu CPF..."/>
-            </Inputs>
+            
+                <Inputs>
+                    <h3>Nome do comprador:</h3>
+                    <input onChange={(e) => inputName(e)} type="name" placeholder="Digite seu nome..."/>
+                    <h3>CPF do comprador:</h3>
+                    <input onChange={(e) => inputCPF(e)} type="number" placeholder="Digite seu CPF..."/>
+                </Inputs>
 
             {enviarSucesso()}
             
