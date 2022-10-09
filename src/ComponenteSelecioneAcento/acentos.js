@@ -3,24 +3,23 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Acentos({ acentos, setAcentoSelecionado, setDados, filmeSelecionado, horarioSelecionado, acentoSelecionado, dados }) {
+export default function Acentos({ acentos, setAcentoSelecionado, setDados, acentoSelecionado}) {
     const [selecionados, setSelecionados] = useState([]) 
     const [Nome, setNome] = useState()
     const [CPF, setCPF] = useState()
     const navigate = useNavigate()
-    
+
     setAcentoSelecionado(selecionados)
     
     function acento(a) {
-
-        if(selecionados.includes(a.name) && a.isAvailable ) {
-            return  <BolinhaAcento onClick={() => clicado(a.name)}key={a.id} color={"#0E7D71"}>
+        if(selecionados.includes(a.id) && a.isAvailable ) {
+            return  <BolinhaAcento onClick={() => clicado(a.id, a.name)} key={a.id} color={"#0E7D71"}>
                         <p>{a.name}</p>
                     </BolinhaAcento>
         } 
         
         else if(a.isAvailable === true) {
-            return  <BolinhaAcento onClick={() => setSelecionados([...selecionados, a.name])} key={a.id} color={"#7B8B99"}>
+            return  <BolinhaAcento onClick={() => setSelecionados([...selecionados, a.id, a.name])} key={a.id} color={"#7B8B99"}>
                         <p>{a.name}</p>
                     </BolinhaAcento>
         } else if(a.isAvailable === false) {
@@ -30,8 +29,8 @@ export default function Acentos({ acentos, setAcentoSelecionado, setDados, filme
         }
     }
 
-    function clicado(i) {
-        const acentosFiltrados = selecionados.filter((item) => item !== i)
+    function clicado(id, n) {
+        const acentosFiltrados = selecionados.filter((item) => item !== id && item !== n)
         setSelecionados(acentosFiltrados)
     }
 
@@ -50,6 +49,7 @@ export default function Acentos({ acentos, setAcentoSelecionado, setDados, filme
                 name: Nome,
                 cpf: CPF
             }
+        
         
 
         axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", postForm).then((res) => {

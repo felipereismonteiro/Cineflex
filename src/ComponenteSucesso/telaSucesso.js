@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 
 
-export default function TelaSucesso({filmeSelecionado, horarioSelecionado, acentoSelecionado, dados}) {
+export default function TelaSucesso({filmeSelecionado, horarioSelecionado, acentosFiltrados, dados}) {
     return(
         <>
             <Sucesso>
@@ -18,7 +18,7 @@ export default function TelaSucesso({filmeSelecionado, horarioSelecionado, acent
 
             <Container>
                 <h2>Ingressos</h2>
-                {acentoSelecionado !== undefined && acentoSelecionado.map((h, index) => <p key={index}>Assento {h}</p>)}
+                {acentosFiltrados !== undefined && acentosFiltrados.map((h, index) => <p key={index}>Assento {h}</p>)}
             </Container>
 
             <Container>

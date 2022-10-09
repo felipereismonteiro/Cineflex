@@ -14,6 +14,8 @@ export default function App() {
     const [acentoSelecionado, setAcentoSelecionado] = useState([])  
     const [dados, setDados] = useState()
 
+    const acentosFiltrados = acentoSelecionado.filter((i) => typeof i === typeof "")
+
     return(
         <BrowserRouter>
             <Header/>
@@ -30,7 +32,7 @@ export default function App() {
                 <Route path="/sucesso" element={<TelaSucesso 
                                                             filmeSelecionado={filmeSelecionado} 
                                                             horarioSelecionado={horarioSelecionado}
-                                                            acentoSelecionado={acentoSelecionado}
+                                                            acentosFiltrados={acentosFiltrados}
                                                             dados={dados}
                                                              />}/>
             </Routes>
